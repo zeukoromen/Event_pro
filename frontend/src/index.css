@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Event Pro — Design System Tokens
+   
+   All colors use HSL format so Tailwind can compose opacity
+   variants automatically (e.g. bg-primary/20).
+   
+   These CSS custom properties are the single source of truth.
+   Never hardcode color values in component files.
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* ── Brand ──────────────────────────────────────────── */
+    --primary: 243 75% 59%;           /* Indigo-500: #6366f1 */
+    --primary-foreground: 0 0% 100%;
+
+    /* ── Page / Surface ─────────────────────────────────── */
+    --background: 0 0% 100%;
+    --surface: 60 9% 98%;             /* Stone-50: warm page bg */
+    --foreground: 24 10% 10%;         /* Stone-900: near-black text */
+
+    /* ── Cards / Raised surfaces ────────────────────────── */
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    /* ── Secondary / Muted ──────────────────────────────── */
+    --secondary: 60 5% 96%;           /* Stone-100 */
+    --secondary-foreground: 24 10% 10%;
+    --muted: 60 5% 96%;               /* Stone-100 */
+    --muted-foreground: 25 5% 45%;    /* Stone-500 */
+
+    /* ── Accent ─────────────────────────────────────────── */
+    --accent: 60 5% 96%;
+    --accent-foreground: 24 10% 10%;
+
+    /* ── Semantic ───────────────────────────────────────── */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 72% 29%;
+    --success-foreground: 0 0% 100%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 0 0% 100%;
+
+    /* ── RSVP Status ────────────────────────────────────── */
+    --rsvp-confirmed: 142 72% 29%;
+    --rsvp-pending: 25 5% 45%;
+    --rsvp-declined: 0 84% 60%;
+    --rsvp-maybe: 32 95% 44%;
+
+    /* ── Borders & Inputs ───────────────────────────────── */
+    --border: 20 6% 90%;              /* Stone-200 */
+    --input: 20 6% 90%;
+    --ring: 243 75% 59%;              /* Match primary */
+
+    /* ── Shape ──────────────────────────────────────────── */
+    --radius: 0.5rem;                 /* 8px */
+
+    /* ── Sidebar ────────────────────────────────────────── */
+    --sidebar-width: 240px;
+    --topbar-height: 56px;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--surface));
+    color: hsl(var(--foreground));
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus ring — keyboard navigation only */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Invitation surface — applied to public RSVP pages */
+  .invitation-surface {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  .invitation-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  /* Visually hidden but accessible to screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
